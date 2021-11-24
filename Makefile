@@ -6,7 +6,7 @@
 #    By: svrielin <svrielin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/23 13:15:55 by svrielin      #+#    #+#                  #
-#    Updated: 2021/11/24 17:13:41 by svrielin      ########   odam.nl          #
+#    Updated: 2021/11/24 19:31:39 by svrielin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,15 +45,16 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 $(LIB):
 	$(MAKE) -C ./libft
 
+# rm -df instead of rmdir, because this doesn't give an error when dir doesn't exist
+# -d: dir, removes empty directories
+# -f: force, ignore nonexistant files
 clean:
 	rm -f $(OBJ_FILES) 
-	rmdir $(OBJ_DIR)
+	rm -df $(OBJ_DIR)
 	$(MAKE) clean -C ./libft
 	@echo "Object files and directory removed"
 
-# Clean should be a prerequisite of fclean, but that way I can never remove the .a file after using clean
-# LET OP!!!! Changed this also for the libft makefile, in this submodule
-fclean:
+fclean: clean
 	@rm -f $(NAME)
 	$(MAKE) fclean -C ./libft
 	@echo "Library printf removed"
