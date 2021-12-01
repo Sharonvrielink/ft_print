@@ -6,12 +6,13 @@
 /*   By: svrielin <svrielin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/23 13:03:04 by svrielin      #+#    #+#                 */
-/*   Updated: 2021/11/24 19:03:01 by svrielin      ########   odam.nl         */
+/*   Updated: 2021/12/01 17:56:24 by svrielin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include <stdarg.h>
+#include <stdio.h>
 
 /* 
 1.  Print format string until you find a %
@@ -28,17 +29,19 @@ int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		i;
+	//int		count;
 
 	i = 0;
 	if (!format)
 		return (0);
 	va_start (args, format);
 	while (format[i] != '\0')
-	{
-		if (format[i] == '%' && format[i + 1])
-		//go to conversion
+	{		
+		//if (format[i] == '%' && format[i + 1])
+			//go to conversion
+		printf("i = %d\n", i);
 		i++;
 	}
-	return(1);
+	return(i);
 	va_end (args);
 }

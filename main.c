@@ -5,10 +5,26 @@
 int	main(void)
 {
 	int		return_printf;
-	char	*str;	
+	int		return_ft_printf;
+	char *	str;	
 
-	str = "Hallo hallo\n";
-	ft_putstr_fd(str, 1);
-	return_printf = printf("Str = %s\n", str);
+	return_printf = printf("Test0 only a string\n");
 	printf("Return_printf = %d\n", return_printf);
+	return_ft_printf = ft_printf("Test0 only a string\n");
+
+	char c;
+    char c0;
+    char c1;
+    int i;
+
+    c = 'C';
+    c0 = 'S';
+    c1 = 'J';
+    i = -50000;
+    //ft_printf("Test1 string with char %%c: %c that will continue after parsing\n", c);
+    //ft_printf("Test2 string with char 1: %c and char 2: %c\n", c0, c1);
+    //ft_printf("Test3 string with decimal format specifier %%d: %d\n", i);
+    //ft_printf("Test4 string with int %%i: %i and char %%c: %c\n", i, c);
+    //ft_printf("Test5 string with char as %%i: %i and int as %%c: %c\n", c, i);
+    //printf("Printf for test5 string with char as %%i: %i and int as %%c: %c\n", c, i);
 }
