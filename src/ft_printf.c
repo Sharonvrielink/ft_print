@@ -37,9 +37,10 @@ int	ft_printf(const char *format, ...)
 	va_start (args, format);
 	while (format[i] != '\0')
 	{		
+		ft_putchar_fd(format[i], 1);
 		//if (format[i] == '%' && format[i + 1])
 			//go to conversion
-		printf("i = %d\n", i);
+//		printf("i = %d\n", i);
 		i++;
 	}
 	return(i);

@@ -2,7 +2,18 @@
 #include "libft/libft.h"
 #include <stdio.h>
 
-int	main(void)
+int	main(int argc, char **argv)
+{
+	if (argc != 3)
+	{
+		ft_putchar_fd('\n', 1);
+		return (0);
+	}
+	printf("%s en dit %s", argv[1], argv[2]);
+	ft_printf("%c", '0');
+	return(0);
+}
+/*int	main(void)
 {
 	int		return_printf;
 	int		return_ft_printf;
@@ -27,4 +38,4 @@ int	main(void)
     //ft_printf("Test4 string with int %%i: %i and char %%c: %c\n", i, c);
     //ft_printf("Test5 string with char as %%i: %i and int as %%c: %c\n", c, i);
     //printf("Printf for test5 string with char as %%i: %i and int as %%c: %c\n", c, i);
-}
+}*/

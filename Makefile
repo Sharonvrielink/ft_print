@@ -21,6 +21,11 @@ OBJ_DIR			:=	./obj
 OBJ_FILES		:=	$(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
 LIB				:=	./libft/libft.a
 
+ifdef DEBUG
+CFLAGS	+=	-g
+NAME = libftprintf_debug.a
+LIB = libft/libft_debug.a
+endif
 
 all: $(NAME)
 
@@ -59,6 +64,12 @@ fclean: clean
 	$(MAKE) fclean -C ./libft
 	@echo "Library printf removed"
 
+printf_tester: all
+	$(MAKE) m -C printfTester
+
+main:
+	$(CC) $(CFLAGS) main.c -L. -lftprintf_debug -g -o printf_lldb
+
 re: fclean all
 
-.PHONY: clean fclean
+.PHONY: clean fclean main printf_tester
