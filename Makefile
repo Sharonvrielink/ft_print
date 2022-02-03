@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME			:=	libftprintf.a
-CC				:=	gcc
+CC			:=	gcc
 CFLAGS			?=	-Wall -Wextra -Werror
 
 #################################Project_files##################################
@@ -19,7 +19,7 @@ SRC_DIR			:=	./src
 SRC_FILES		:=	ft_printf.c
 OBJ_DIR			:=	./obj
 OBJ_FILES		:=	$(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
-LIB				:=	./libft/libft.a
+LIB			:=	./libft/libft.a
 
 ifdef DEBUG
 CFLAGS	+=	-g
