@@ -2,15 +2,20 @@
 #include "libft/libft.h"
 #include <stdio.h>
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	if (argc != 3)
-	{
-		ft_putchar_fd('\n', 1);
-		return (0);
-	}
-	printf("%s en dit %s", argv[1], argv[2]);
-	ft_printf("%c", '0');
+	int		retft_printf;
+	int		retprintf;
+	//int		i = -1;
+	//int 	*pointer = &i;
+
+	printf("Test ? = ft_printf\nTest ! = printf\n\n");
+
+	printf("Test 1\n");
+	retft_printf = ft_printf(" %d ", 30);
+	printf("|\n--------------------------------------\n");
+	retprintf = printf(" %d ", 30);
+	printf("|\nReturn ft_printf = %d\nReturn printf = %d\n", retft_printf, retprintf);
 	return(0);
 }
 /*int	main(void)

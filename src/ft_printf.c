@@ -6,12 +6,13 @@
 /*   By: svrielin <svrielin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/23 13:03:04 by svrielin      #+#    #+#                 */
-/*   Updated: 2021/12/01 17:56:24 by svrielin      ########   odam.nl         */
+/*   Updated: 2022/02/03 17:45:10 by svrielin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include <stdarg.h>
+#include "ft_printf.h"
 #include <stdio.h>
 
 /* 
@@ -25,24 +26,63 @@
 5.  Repeat
 */
 
+void printchar(int arg, int *len)
+{
+	ft_putchar_fd(arg, 1);
+	*len += 1;
+}
+
+void printstring(char *str, int *len)
+{
+	if(str == NULL)
+		str = "(null)";
+	ft_putstr_fd(str, 1);
+	*len = *len + ft_strlen(str);
+}
+
+void printnumber(int arg, int *len)
+{
+	ft_putnbr_fd(arg, 1);
+	*len += numlen(arg);
+}
+
+void preconverter(char specifier, va_list args, int *len)
+{
+	if (specifier == 'c')
+		printchar(va_arg (args, int), len);
+	if (specifier == 's')
+		printstring(va_arg (args, char*), len);
+	if (specifier == 'd' || specifier == 'i')
+		printnumber(va_arg (args, int), len);
+	if (specifier == '%')
+		printchar('%', len);
+}
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		i;
-	//int		count;
+	int		len;
 
 	i = 0;
+	len = 0;
 	if (!format)
 		return (0);
 	va_start (args, format);
 	while (format[i] != '\0')
 	{		
-		ft_putchar_fd(format[i], 1);
-		//if (format[i] == '%' && format[i + 1])
-			//go to conversion
-//		printf("i = %d\n", i);
-		i++;
+		if (format[i] == '%' && format[i + 1])
+		{
+			preconverter(format[i + 1], args, &len);
+			i += 2;
+		}
+		else 
+		{
+			ft_putchar_fd(format[i], 1);
+			len++;
+			i++;
+		}
 	}
-	return(i);
+	return(len);
 	va_end (args);
 }
