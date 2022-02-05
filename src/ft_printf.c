@@ -6,7 +6,7 @@
 /*   By: svrielin <svrielin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/23 13:03:04 by svrielin      #+#    #+#                 */
-/*   Updated: 2022/02/03 17:45:10 by svrielin      ########   odam.nl         */
+/*   Updated: 2022/02/05 16:47:02 by svrielin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,12 @@ void printnumber(int arg, int *len)
 	*len += numlen(arg);
 }
 
+void printunsignednumber(unsigned int arg, int *len)
+{
+	ft_putnbr_fd(arg, 1);
+	*len += numlen(arg);
+}
+
 void preconverter(char specifier, va_list args, int *len)
 {
 	if (specifier == 'c')
@@ -54,6 +60,8 @@ void preconverter(char specifier, va_list args, int *len)
 		printstring(va_arg (args, char*), len);
 	if (specifier == 'd' || specifier == 'i')
 		printnumber(va_arg (args, int), len);
+	if (specifier =='u')
+		printunsignednumber(va_arg (args, int), len);
 	if (specifier == '%')
 		printchar('%', len);
 }

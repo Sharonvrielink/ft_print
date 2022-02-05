@@ -16,6 +16,9 @@ int	main(void)
 	printf("|\n--------------------------------------\n");
 	retprintf = printf(" %d ", 30);
 	printf("|\nReturn ft_printf = %d\nReturn printf = %d\n", retft_printf, retprintf);
+
+	printf("I=%i | U=%u\n", -1, (unsigned)-1);
+	ft_printf("I=%i | U=%u\n", -1, (unsigned)-1);
 	return(0);
 }
 /*int	main(void)
