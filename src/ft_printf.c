@@ -6,7 +6,7 @@
 /*   By: svrielin <svrielin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/23 13:03:04 by svrielin      #+#    #+#                 */
-/*   Updated: 2022/02/05 16:47:02 by svrielin      ########   odam.nl         */
+/*   Updated: 2022/02/08 10:13:15 by svrielin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ void printstring(char *str, int *len)
 void printnumber(int arg, int *len)
 {
 	ft_putnbr_fd(arg, 1);
-	*len += numlen(arg);
+	*len += ft_numlen(arg);
 }
 
 void printunsignednumber(unsigned int arg, int *len)
 {
 	ft_putnbr_fd(arg, 1);
-	*len += numlen(arg);
+	*len += ft_numlen(arg);
 }
 
 void preconverter(char specifier, va_list args, int *len)
