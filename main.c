@@ -7,22 +7,18 @@ int	main(void)
 	int		retft_printf;
 	int		retprintf;
 	int		i;
-	int		len;
+	//int		len;
 	
 	i = -1;
 
 	printf("Test ? = ft_printf\nTest ! = printf\n\n");
 
 	printf("Test 1\n");
-	retft_printf = ft_printf(" %d ", 30);
+	retft_printf = ft_printf(" %X ", -1);
 	printf("|\n--------------------------------------\n");
-	retprintf = printf(" %d ", 30);
+	retprintf = printf(" %X ", -1);
 	printf("|\nReturn ft_printf = %d\nReturn printf = %d\n", retft_printf, retprintf);
 
-	printf("I=%i | U=%u\n", -1, (unsigned)-1);
-	ft_printf("I=%i | U=%u\n", -1, (unsigned)-1);
-	len = ft_numlen(i);
-	printf("Numlen -1 = %d\n", len);
 	return(0);
 }
 /*int	main(void)

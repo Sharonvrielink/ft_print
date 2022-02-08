@@ -6,7 +6,7 @@
 /*   By: svrielin <svrielin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/23 13:03:04 by svrielin      #+#    #+#                 */
-/*   Updated: 2022/02/08 10:13:15 by svrielin      ########   odam.nl         */
+/*   Updated: 2022/02/08 19:46:59 by svrielin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,30 @@ void printnumber(int arg, int *len)
 
 void printunsignednumber(unsigned int arg, int *len)
 {
-	ft_putnbr_fd(arg, 1);
-	*len += ft_numlen(arg);
+	char *str;
+	str = ft_itoa_base(arg, 10);
+	ft_putstr_fd(str, 1);
+	free(str);
+	*len += ft_numlen_base(arg, 10);
+}
+
+void printhex(unsigned int arg, int *len)
+{
+	char *str;
+	str = ft_itoa_base(arg, 16);
+	ft_putstr_fd(str, 1);
+	free(str);
+	*len += ft_numlen_base(arg, 16);
+}
+
+void printhex_upper(unsigned int arg, int *len)
+{
+	char *str;
+	str = ft_itoa_base(arg, 16);
+	str = ft_strtoupper(str);
+	ft_putstr_fd(str, 1);
+	free(str);
+	*len += ft_numlen_base(arg, 16);
 }
 
 void preconverter(char specifier, va_list args, int *len)
@@ -60,8 +82,12 @@ void preconverter(char specifier, va_list args, int *len)
 		printstring(va_arg (args, char*), len);
 	if (specifier == 'd' || specifier == 'i')
 		printnumber(va_arg (args, int), len);
-	if (specifier =='u')
-		printunsignednumber(va_arg (args, int), len);
+	if (specifier == 'u')
+		printunsignednumber(va_arg (args, unsigned int), len);
+	if (specifier == 'x')
+		printhex(va_arg (args, int), len);
+	if (specifier == 'X')
+		printhex_upper(va_arg (args, int), len);
 	if (specifier == '%')
 		printchar('%', len);
 }
