@@ -6,7 +6,7 @@
 /*   By: svrielin <svrielin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/23 13:03:04 by svrielin      #+#    #+#                 */
-/*   Updated: 2022/02/08 19:46:59 by svrielin      ########   odam.nl         */
+/*   Updated: 2022/03/16 19:49:21 by svrielin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ void preconverter(char specifier, va_list args, int *len)
 		printhex(va_arg (args, int), len);
 	if (specifier == 'X')
 		printhex_upper(va_arg (args, int), len);
+	if (specifier == 'p')
+		printpointer(va_arg (args, int), len);
 	if (specifier == '%')
 		printchar('%', len);
 }
