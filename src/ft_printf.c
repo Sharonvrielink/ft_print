@@ -6,7 +6,7 @@
 /*   By: svrielin <svrielin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/23 13:03:04 by svrielin      #+#    #+#                 */
-/*   Updated: 2022/03/16 21:38:16 by svrielin      ########   odam.nl         */
+/*   Updated: 2022/03/22 12:03:29 by svrielin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void printhex_upper(unsigned int arg, int *len)
 	*len += ft_numlen_base(arg, 16);
 }
 
-void printpointer(unsigned int arg, int *len)
+void printpointer(unsigned long long arg, int *len)
 {
 	char *str;
 	
@@ -100,7 +100,7 @@ void preconverter(char specifier, va_list args, int *len)
 	if (specifier == 'X')
 		printhex_upper(va_arg (args, int), len);
 	if (specifier == 'p')
-		printpointer(va_arg (args, int), len);
+		printpointer((unsigned long)va_arg(args, void *), len);
 	if (specifier == '%')
 		printchar('%', len);
 }

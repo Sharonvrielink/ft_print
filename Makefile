@@ -6,7 +6,7 @@
 #    By: svrielin <svrielin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/23 13:15:55 by svrielin      #+#    #+#                  #
-#    Updated: 2022/03/16 20:27:10 by svrielin      ########   odam.nl          #
+#    Updated: 2022/03/22 10:36:50 by svrielin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC_DIR			:=	./src
 SRC_FILES		:=	ft_printf.c
 OBJ_DIR			:=	./obj
 OBJ_FILES		:=	$(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
-LIB			:=	./libft/libft.a
+LIB				:=	./libft/libft.a
 
 ifdef DEBUG
 CFLAGS	+=	-g

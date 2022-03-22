@@ -6,15 +6,16 @@ int	main(void)
 {
 	int		retft_printf;
 	int		retprintf;
-	char	*p; 
-	//int		len;
+	//char	*p; 
+	int		i;
 	
-	p = "hello";
+	i = -2147483648;
+	//p = "hello";
 
 	printf("Test 1\n");
-	retft_printf = ft_printf(" %p ", p);
+	retft_printf = ft_printf(" %d ", i);
 	printf("|\n--------------------------------------\n");
-	retprintf = printf(" %p ", p);
+	retprintf = printf(" %d ", i);
 	printf("|\nReturn ft_printf = %d\nReturn printf = %d\n", retft_printf, retprintf);
 
 	return(0);
