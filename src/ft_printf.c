@@ -6,7 +6,7 @@
 /*   By: svrielin <svrielin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/23 13:03:04 by svrielin      #+#    #+#                 */
-/*   Updated: 2022/03/22 14:38:15 by svrielin      ########   odam.nl         */
+/*   Updated: 2022/03/24 19:50:20 by svrielin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,24 @@ void printpointer(unsigned long long arg, int *len)
 	*len = 2 + (*len + ft_numlen_base(arg, 16));
 }
 
+t_formatter	ft_dispatcher(char conv_flag)
+{
+	static const t_formatter formatter[255] = {
+		['c'] = &ft_formatchar,
+		['s'] = &ft_formatstring,
+		['d'] = &ft_formatdecimal,
+		['i'] = &ft_formatdecimal,
+		['o'] = &ft_format_octal,
+		['p'] = &ft_formatpointer,
+		['X'] = &ft_format_upphex,
+		['x'] = &ft_format_lowhex,
+		['u'] = &ft_format_unsigneddecimal,
+		['f'] = &ft_format_floats,
+	};
+
+	return (formatter[(unsigned int)conv_flag]);
+}
+
 void preconverter(char specifier, va_list args, int *len)
 {
 	if (specifier == 'c')
@@ -85,9 +103,9 @@ void preconverter(char specifier, va_list args, int *len)
 	if (specifier == 'u')
 		printunsignednumber(va_arg (args, unsigned int), len);
 	if (specifier == 'x')
-		printhex(va_arg (args, int), len);
+		printhex(va_arg (args, unsigned int), len);
 	if (specifier == 'X')
-		printhex_upper(va_arg (args, int), len);
+		printhex_upper(va_arg (args, unsigned int), len);
 	if (specifier == 'p')
 		printpointer((unsigned long)va_arg(args, void *), len);
 	if (specifier == '%')
