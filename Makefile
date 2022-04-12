@@ -6,7 +6,7 @@
 #    By: svrielin <svrielin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/23 13:15:55 by svrielin      #+#    #+#                  #
-#    Updated: 2022/03/22 10:36:50 by svrielin      ########   odam.nl          #
+#    Updated: 2022/04/12 17:06:49 by svrielin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,14 @@ CFLAGS			?=	-Wall -Wextra -Werror
 
 #################################Project_files##################################
 SRC_DIR			:=	./src
-SRC_FILES		:=	ft_printf.c
+SRC_FILES		:=	ft_printf.c printchar.c printstring.c printnumber.c printunsignednumber.c \
+					printhex.c printhex_upper.c printpointer.c
 OBJ_DIR			:=	./obj
 OBJ_FILES		:=	$(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
 LIB				:=	./libft/libft.a
 
 ifdef DEBUG
 CFLAGS	+=	-g
-NAME = libftprintf_debug.a
-LIB = libft/libft_debug.a
 endif
 
 all: $(NAME)
@@ -71,7 +70,7 @@ printf_tester_c: all
 	$(MAKE) s -C printfTester
 
 main:
-	$(CC) $(CFLAGS) main.c -L. -lftprintf_debug -g -o printf_lldb
+	$(CC) $(CFLAGS) main.c -L. -lftprintf -o printf_lldb
 
 re: fclean all
 
