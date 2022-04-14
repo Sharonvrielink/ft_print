@@ -4,17 +4,25 @@
 
 int	main(void)
 {
-	int		retft_printf;
-	int		retprintf;
-	char	*p; 
-	
-	p = "hello";
+	int i;
 
-	printf("Test 1\n");
-	retft_printf = ft_printf(" %p ", p);
-	printf("|\n--------------------------------------\n");
-	retprintf = printf(" %p ", p);
-	printf("|\nReturn ft_printf = %d\nReturn printf = %d\n", retft_printf, retprintf);
+	i = -123;
+
+	printf("i = %x\n", i);
+	ft_printf("i = %x\n", i);
+
+
+	// int		retft_printf;
+	// int		retprintf;
+	// char	*p; 
+	
+	// p = "hello";
+
+	// printf("Test 1\n");
+	// retft_printf = ft_printf(" %p ", p);
+	// printf("|\n--------------------------------------\n");
+	// retprintf = printf(" %p ", p);
+	// printf("|\nReturn ft_printf = %d\nReturn printf = %d\n", retft_printf, retprintf);
 
 	return(0);
 }

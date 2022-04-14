@@ -6,7 +6,7 @@
 #    By: svrielin <svrielin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/23 13:15:55 by svrielin      #+#    #+#                  #
-#    Updated: 2022/04/12 17:06:49 by svrielin      ########   odam.nl          #
+#    Updated: 2022/04/14 13:21:27 by svrielin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,8 +69,8 @@ printf_tester: all
 printf_tester_c: all
 	$(MAKE) s -C printfTester
 
-main:
-	$(CC) $(CFLAGS) main.c -L. -lftprintf -o printf_lldb
+main: all
+	$(CC) $(CFLAGS) main.c $(NAME) -o ft_printf
 
 re: fclean all
 
