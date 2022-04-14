@@ -6,12 +6,12 @@
 #    By: svrielin <svrielin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/23 13:15:55 by svrielin      #+#    #+#                  #
-#    Updated: 2022/04/14 13:21:27 by svrielin      ########   odam.nl          #
+#    Updated: 2022/04/14 15:00:34 by svrielin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			:=	libftprintf.a
-CC			:=	gcc
+CC				:=	gcc
 CFLAGS			?=	-Wall -Wextra -Werror
 
 #################################Project_files##################################
@@ -63,15 +63,9 @@ fclean: clean
 	$(MAKE) fclean -C ./libft
 	@echo "Library printf removed"
 
-printf_tester: all
-	$(MAKE) m -C printfTester
-
-printf_tester_c: all
-	$(MAKE) s -C printfTester
-
 main: all
 	$(CC) $(CFLAGS) main.c $(NAME) -o ft_printf
 
 re: fclean all
 
-.PHONY: clean fclean main printf_tester
+.PHONY: clean fclean main
