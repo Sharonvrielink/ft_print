@@ -23,7 +23,6 @@ int	main(void)
 	// printf("|\n--------------------------------------\n");
 	// retprintf = printf(" %p ", p);
 	// printf("|\nReturn ft_printf = %d\nReturn printf = %d\n", retft_printf, retprintf);
-
 	return(0);
 }
 /*int	main(void)

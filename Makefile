@@ -6,7 +6,7 @@
 #    By: svrielin <svrielin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/23 13:15:55 by svrielin      #+#    #+#                  #
-#    Updated: 2022/04/14 15:00:34 by svrielin      ########   odam.nl          #
+#    Updated: 2022/04/14 17:58:18 by svrielin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ fclean: clean
 	@echo "Library printf removed"
 
 main: all
-	$(CC) $(CFLAGS) main.c $(NAME) -o ft_printf
+	$(CC) $(CFLAGS) -fsanitize=address -g main.c $(NAME) -o ft_printf
 
 re: fclean all
 
