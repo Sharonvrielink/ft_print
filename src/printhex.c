@@ -6,12 +6,12 @@
 /*   By: svrielin <svrielin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/12 16:50:43 by svrielin      #+#    #+#                 */
-/*   Updated: 2022/04/14 14:34:15 by svrielin      ########   odam.nl         */
+/*   Updated: 2022/04/22 15:52:44 by svrielin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 void	printhex(va_list args, int *len)
 {
