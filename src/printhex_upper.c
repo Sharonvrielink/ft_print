@@ -6,7 +6,7 @@
 /*   By: svrielin <svrielin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/12 16:51:11 by svrielin      #+#    #+#                 */
-/*   Updated: 2022/04/22 15:52:39 by svrielin      ########   odam.nl         */
+/*   Updated: 2022/04/22 16:01:00 by svrielin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	printhex_upper(va_list args, int *len)
 
 	nbr = va_arg(args, unsigned int);
 	str = ft_ulltoa_base(nbr, 16);
+	if (!str)
+		return;
 	str = ft_strtoupper(str);
 	ft_putstr_fd(str, 1);
 	free(str);

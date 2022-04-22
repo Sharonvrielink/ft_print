@@ -6,10 +6,10 @@ int	main(void)
 {
 	int i;
 
-	i = -123;
+	i = NULL;
 
-	printf("i = %x\n", i);
-	ft_printf("i = %x\n", i);
+	printf("i = %X\n", i);
+	ft_printf("i = %X\n", i);
 
 
 	// int		retft_printf;
