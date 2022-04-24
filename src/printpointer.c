@@ -6,7 +6,7 @@
 /*   By: svrielin <svrielin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/12 16:51:55 by svrielin      #+#    #+#                 */
-/*   Updated: 2022/04/22 16:01:21 by svrielin      ########   odam.nl         */
+/*   Updated: 2022/04/24 14:11:36 by svrielin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	printpointer(va_list args, int *len)
 	ft_putstr_fd("0x", 1);
 	str = ft_ulltoa_base(p, 16);
 	if (!str)
-		return;
+		return ;
 	ft_putstr_fd(str, 1);
 	free(str);
 	*len = 2 + (*len + ft_unsignednumlen_base(p, 16));
