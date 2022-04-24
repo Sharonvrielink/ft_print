@@ -6,7 +6,7 @@
 /*   By: svrielin <svrielin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/12 16:34:48 by svrielin      #+#    #+#                 */
-/*   Updated: 2022/04/14 14:35:52 by svrielin      ########   odam.nl         */
+/*   Updated: 2022/04/24 14:10:41 by svrielin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	printunsignednumber(va_list args, int *len)
 
 	nbr = va_arg(args, unsigned int);
 	str = ft_ulltoa_base(nbr, 10);
+	if (!str)
+		return;
 	ft_putstr_fd(str, 1);
 	free(str);
 	*len += ft_unsignednumlen_base(nbr, 10);
