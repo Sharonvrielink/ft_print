@@ -6,13 +6,17 @@
 #    By: svrielin <svrielin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/23 13:15:55 by svrielin      #+#    #+#                  #
-#    Updated: 2022/04/14 17:58:18 by svrielin      ########   odam.nl          #
+#    Updated: 2022/04/30 15:59:59 by svrielin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
+# := simple variable assignment, it gets evaluated when first encountered/defined
+# Everytime afterwards when you use the variable it will be replaced
+# = recursive variable use. Everytime the variable is used it will be evaluated (NOT when defined)
+
 NAME			:=	libftprintf.a
 CC				:=	gcc
-CFLAGS			?=	-Wall -Wextra -Werror
+CFLAGS			:=	-Wall -Wextra -Werror
 
 #################################Project_files##################################
 SRC_DIR			:=	./src
@@ -21,10 +25,6 @@ SRC_FILES		:=	ft_printf.c printchar.c printstring.c printnumber.c printunsignedn
 OBJ_DIR			:=	./obj
 OBJ_FILES		:=	$(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
 LIB				:=	./libft/libft.a
-
-ifdef DEBUG
-CFLAGS	+=	-g
-endif
 
 all: $(NAME)
 
@@ -40,6 +40,7 @@ $(NAME): $(OBJ_FILES) $(LIB)
 
 # -p: if parent dirs do not exist, generate them to accommodate 
 # gcc -c: compile but not link the file, makes the result an object file
+# $< is the first prerequisite
 # gcc -o: name of the output file
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	mkdir -p $(dir $@)
@@ -64,7 +65,7 @@ fclean: clean
 	@echo "Library printf removed"
 
 main: all
-	$(CC) $(CFLAGS) -fsanitize=address -g main.c $(NAME) -o ft_printf
+	$(CC) $(CFLAGS) -fsanitize=address -g main.c -lftprintf -o ft_printf
 
 re: fclean all
 

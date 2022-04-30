@@ -6,7 +6,7 @@ int	main(void)
 {
 	int i;
 
-	i = NULL;
+	i = 0;
 
 	printf("i = %X\n", i);
 	ft_printf("i = %X\n", i);
