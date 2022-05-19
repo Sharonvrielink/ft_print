@@ -6,7 +6,7 @@
 #    By: svrielin <svrielin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/23 13:15:55 by svrielin      #+#    #+#                  #
-#    Updated: 2022/04/30 15:59:59 by svrielin      ########   odam.nl          #
+#    Updated: 2022/05/19 13:33:29 by svrielin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,8 +64,11 @@ fclean: clean
 	$(MAKE) fclean -C ./libft
 	@echo "Library printf removed"
 
+# The -L flag indicates (a non standard) directory where the libraries can be found.
+# The -l flag indicates the name of the library. 
+# Note, that it assumes the library to start with lib and end with .a (so lib and .a must not be specified)
 main: all
-	$(CC) $(CFLAGS) -fsanitize=address -g main.c -lftprintf -o ft_printf
+	$(CC) $(CFLAGS) -fsanitize=address -g main.c -lftprintf -L. -o ft_printf
 
 re: fclean all
 
