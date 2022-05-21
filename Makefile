@@ -6,7 +6,7 @@
 #    By: svrielin <svrielin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/23 13:15:55 by svrielin      #+#    #+#                  #
-#    Updated: 2022/05/19 13:33:29 by svrielin      ########   odam.nl          #
+#    Updated: 2022/05/21 10:23:53 by svrielin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 # = recursive variable use. Everytime the variable is used it will be evaluated (NOT when defined)
 
 NAME			:=	libftprintf.a
-CC				:=	gcc
+#CC				:=	gcc
 CFLAGS			:=	-Wall -Wextra -Werror
 
 #################################Project_files##################################
